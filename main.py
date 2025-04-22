@@ -1,11 +1,15 @@
-﻿# Example file showing a basic pygame "game loop"
+﻿
 import pygame
+import AppSetting
+from AppSetting import GAMENAME, DISPLAYRADIO
 
 # pygame setup
 pygame.init()
-screen = pygame.display.set_mode((1280, 720))
+screen = pygame.display.set_mode((DISPLAYRADIO))
 clock = pygame.time.Clock()
 running = True
+dt = 0
+pygame.display.set_caption(GAMENAME)
 
 while running:
     # poll for events
@@ -22,6 +26,6 @@ while running:
     # flip() the display to put your work on screen
     pygame.display.flip()
 
-    clock.tick(60)  # limits FPS to 60
+    dt = clock.tick(60) / 1000
 
 pygame.quit()

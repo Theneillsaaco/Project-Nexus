@@ -1,1 +1,2 @@
 ﻿GAMENAME = "Proyecto Nexus"
+DISPLAYRADIO = 1280, 720
