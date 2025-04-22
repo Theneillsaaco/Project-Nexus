@@ -15,6 +15,8 @@ class Player:
 
     def update(self, dt, platforms):
         keys = pygame.key.get_pressed()
+
+        # Movimiento lateteral
         if keys[pygame.K_LEFT] or keys[pygame.K_a]:
             self.velocity.x = -200
         elif keys[pygame.K_RIGHT] or keys[pygame.K_d]:
@@ -22,14 +24,19 @@ class Player:
         else:
             self.velocity.x = 0
 
-        if keys[pygame.K_SPACE] or keys[pygame.K_w] and self.on_ground:
+        # Salto
+        if (keys[pygame.K_SPACE] or keys[pygame.K_w]
+                or keys[pygame.K_UP]) and self.on_ground:
             self.velocity.y = -400
 
-        self.velocity.y += 1000 * dt # gravedad
+        # gravedad
+        self.velocity.y += 1000 * dt
 
+        # Movimiento horizontal y colisiones
         self.rect.x += int(self.velocity.x * dt)
         self.check_collisions(platforms, horizontal = True)
 
+        # Movimiento vertical y colisiones
         self.rect.y += int(self.velocity.y * dt)
         self.on_ground = False
         self.check_collisions(platforms, horizontal = False)

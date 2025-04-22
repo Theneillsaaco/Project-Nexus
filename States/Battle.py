@@ -1,4 +1,7 @@
 ﻿import pygame
+import AppSetting
+from AppSetting import INVULNERABLETIMER
+
 
 class BattleState:
     def __init__(self, scene_manager, screen):
@@ -12,7 +15,7 @@ class BattleState:
                 self.scene_manager.pop()
                 previous_state = self.scene_manager.scenes[-1]
                 previous_state.player.invulnerable = True
-                previous_state.player.invuln_timer = 5.0
+                previous_state.player.invuln_timer = INVULNERABLETIMER
 
     def update(self, dt):
         pass
