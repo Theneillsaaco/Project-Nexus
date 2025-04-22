@@ -1,11 +1,9 @@
-﻿
-import pygame
-import AppSetting
+﻿import pygame
 from AppSetting import GAMENAME, DISPLAYRADIO
 
 # pygame setup
 pygame.init()
-screen = pygame.display.set_mode((DISPLAYRADIO))
+screen = pygame.display.set_mode(DISPLAYRADIO)
 clock = pygame.time.Clock()
 running = True
 dt = 0
@@ -26,6 +24,7 @@ while running:
     # flip() the display to put your work on screen
     pygame.display.flip()
 
+    # limits FPS to 60
     dt = clock.tick(60) / 1000
 
 pygame.quit()
