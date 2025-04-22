@@ -1,30 +1,40 @@
 ﻿import pygame
 from AppSetting import GAMENAME, DISPLAYRADIO
+from Core.Scene_Manager import SceneManager
+from States.Exploration import ExplorationState
 
-# pygame setup
-pygame.init()
-screen = pygame.display.set_mode(DISPLAYRADIO)
-clock = pygame.time.Clock()
-running = True
-dt = 0
-pygame.display.set_caption(GAMENAME)
+def main():
+    # pygame setup
+    pygame.init()
+    screen = pygame.display.set_mode(DISPLAYRADIO)
+    pygame.display.set_caption(GAMENAME)
+    clock = pygame.time.Clock()
+    dt = 0
 
-while running:
-    # poll for events
-    # pygame.QUIT event means the user clicked X to close your window
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+    scene_manager = SceneManager()
+    scene_manager.push(ExplorationState(scene_manager, screen))
 
-    # fill the screen with a color to wipe away anything from last frame
-    screen.fill("purple")
+    running = True
+    while running:
+        # limits FPS to 60
+        dt = clock.tick(60) / 1000
+        # poll for events
+        # pygame.QUIT event means the user clicked X to close your window
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            else:
+                scene_manager.handle_event(event)
 
-    # RENDER YOUR GAME HERE
+        # RENDER YOUR GAME HERE
+        scene_manager.update(dt)
+        scene_manager.draw()
 
-    # flip() the display to put your work on screen
-    pygame.display.flip()
+        # flip() the display to put your work on screen
+        pygame.display.flip()
 
-    # limits FPS to 60
-    dt = clock.tick(60) / 1000
 
-pygame.quit()
+    pygame.quit()
+
+if __name__ == "__main__":
+    main()
