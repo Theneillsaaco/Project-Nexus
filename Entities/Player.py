@@ -1,5 +1,8 @@
 ﻿import pygame
 
+from AppSetting import VELOCITYHORIZONTAL, VELOCITYVERTICAL, GRAVETY
+
+
 class Player:
     def __init__(self, x, y):
         self.rect = pygame.Rect(x, y, 40, 60)
@@ -8,7 +11,7 @@ class Player:
         self.on_ground = False
         self.invulnerable = False
         self.invuln_timer = 0
-        self.visible = True # para el parpadeo
+        self.visible = True # Para el parpadeo
 
     def handle_event(self, event):
         pass # El movimiento se maneja por estado de teclado
@@ -18,19 +21,19 @@ class Player:
 
         # Movimiento lateteral
         if keys[pygame.K_LEFT] or keys[pygame.K_a]:
-            self.velocity.x = -200
+            self.velocity.x = -VELOCITYHORIZONTAL
         elif keys[pygame.K_RIGHT] or keys[pygame.K_d]:
-            self.velocity.x = 200
+            self.velocity.x = VELOCITYHORIZONTAL
         else:
             self.velocity.x = 0
 
         # Salto
         if (keys[pygame.K_SPACE] or keys[pygame.K_w]
                 or keys[pygame.K_UP]) and self.on_ground:
-            self.velocity.y = -400
+            self.velocity.y = VELOCITYVERTICAL
 
-        # gravedad
-        self.velocity.y += 1000 * dt
+        # Gravedad
+        self.velocity.y += GRAVETY * dt
 
         # Movimiento horizontal y colisiones
         self.rect.x += int(self.velocity.x * dt)
