@@ -2,7 +2,8 @@
 from Entities.Player import Player
 from Entities.Enemy import Enemy
 from States.Battles.BattleSlime import BattleSlime
-from States.Battles.Core.Battle import BattleState
+from Ui.HUD import HUD
+
 
 class ExplorationState:
     def __init__(self, scene_manager, screen):
@@ -11,6 +12,7 @@ class ExplorationState:
         self.player = Player(100, 400)
         self.enemy = Enemy(600, 400)
         self.platforms = [pygame.Rect(0, 500, 800, 100)]  # suelo
+        self.hud = HUD(self.player)
 
     def handle_event(self, event):
         self.player.handle_event(event)
@@ -27,3 +29,4 @@ class ExplorationState:
             pygame.draw.rect(self.screen, (100, 100, 100), platform)
         self.enemy.draw(self.screen)
         self.player.draw(self.screen)
+        self.hud.draw(self.screen)

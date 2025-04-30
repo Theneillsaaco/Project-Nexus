@@ -1,6 +1,5 @@
 ﻿import pygame
-
-from AppSetting import VELOCITYHORIZONTAL, VELOCITYVERTICAL, GRAVETY
+from AppSetting import VELOCITYHORIZONTAL, VELOCITYVERTICAL, GRAVETY, PLAYER_MAX_HEALTH
 
 
 class Player:
@@ -12,6 +11,7 @@ class Player:
         self.invulnerable = False
         self.invuln_timer = 0
         self.visible = True # Para el parpadeo
+        self.health = PLAYER_MAX_HEALTH
 
     def handle_event(self, event):
         pass # El movimiento se maneja por estado de teclado
