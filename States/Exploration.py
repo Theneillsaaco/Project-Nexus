@@ -1,7 +1,7 @@
 ﻿import pygame
 from Entities.Player import Player
 from Entities.Enemy import Enemy
-from States.Battle import BattleState
+from States.Battles.Core.Battle import BattleState
 
 class ExplorationState:
     def __init__(self, scene_manager, screen):
