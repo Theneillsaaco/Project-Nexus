@@ -37,6 +37,9 @@ class BattleState(abc.ABC):
 
     @abc.abstractmethod
     def draw_enemy_attack(self):
+        """ Dibuja patron de ataque del enemigo"""
 
+    def draw_ui(self):
+        pygame.draw.rect(self.screen, (255, 255, 255), pygame.Rect(250, 480, 300, 100), 2)
 
 
