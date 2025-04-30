@@ -31,7 +31,7 @@ class BattleState(abc.ABC):
             self.screen.blit(text, (220, 550))
 
     @abc.abstractmethod
-    def updaye_logic(self, dt):
+    def update_logic(self, dt):
         """ Logica de combate especifica del enemigo"""
         pass
 

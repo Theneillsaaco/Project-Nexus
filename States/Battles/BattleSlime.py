@@ -1,5 +1,5 @@
 ﻿import pygame.draw
-import pysexo
+import pygame
 
 from States.Battles.Core.Battle import BattleState
 
@@ -12,7 +12,7 @@ class BattleSlime(BattleState):
         self.player_rect = pygame.Rect(370, 530, 20, 20)
         self.projectiles = [pygame.Rect(250 + i * 40, 480, 10, 10) for i in range(5)]
 
-    def updaye_logic(self, dt):
+    def update_logic(self, dt):
         for proj in self.projectiles:
             proj.y += 200 * dt
         self.projectiles = [p for p in self.projectiles if p.y < 580]

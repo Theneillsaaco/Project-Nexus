@@ -1,6 +1,7 @@
 ﻿import pygame
 from Entities.Player import Player
 from Entities.Enemy import Enemy
+from States.Battles.BattleSlime import BattleSlime
 from States.Battles.Core.Battle import BattleState
 
 class ExplorationState:
@@ -18,7 +19,7 @@ class ExplorationState:
         self.player.update(dt, self.platforms)
 
         if self.player.rect.colliderect(self.enemy.rect) and not self.player.invulnerable:
-            self.scene_manager.push(BattleState(self.scene_manager, self.screen))
+            self.scene_manager.push(BattleSlime(self.scene_manager, self.screen))
 
     def draw(self):
         self.screen.fill((30, 30, 30))
