@@ -1,4 +1,6 @@
-﻿# Nombre del juego
+﻿"""AppSetting.py"""
+
+# Nombre del juego
 GAMENAME = "Proyecto Nexus"
 
 # Tamaño de la pantalla
@@ -15,14 +17,14 @@ VELOCITYVERTICAL = -600
 GRAVETY = 1000
 
 # Cuadro de combate
-BATTLE_BOX_X = 250
-BATTLE_BOX_Y = 480
 BATTLE_BOX_WIDTH = 300
-BATTLE_BOX_HEIGHT = 100
+BATTLE_BOX_HEIGHT = 150
+BATTLE_BOX_X = (DISPLAYRADIO[0] - BATTLE_BOX_WIDTH) // 2
+BATTLE_BOX_Y = (DISPLAYRADIO[1] - BATTLE_BOX_HEIGHT) // 2
 
 # Jugador
 PLAYER_SIZE = 20
 PLAYER_MAX_HEALTH = 100
 
-# Enemigos
-ENEMY_DAMAGE = 10
+# Enemigo Slime
+ENEMYSLIME_DAMAGE = 10

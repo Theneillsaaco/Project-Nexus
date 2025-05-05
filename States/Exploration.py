@@ -21,7 +21,7 @@ class ExplorationState:
         self.player.update(dt, self.platforms)
 
         if self.player.rect.colliderect(self.enemy.rect) and not self.player.invulnerable:
-            self.scene_manager.push(BattleSlime(self.scene_manager, self.screen))
+            self.scene_manager.push(BattleSlime(self.scene_manager, self.screen, self.hud))
 
     def draw(self):
         self.screen.fill((30, 30, 30))
@@ -29,4 +29,3 @@ class ExplorationState:
             pygame.draw.rect(self.screen, (100, 100, 100), platform)
         self.enemy.draw(self.screen)
         self.player.draw(self.screen)
-        self.hud.draw(self.screen)
