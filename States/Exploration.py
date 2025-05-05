@@ -2,7 +2,7 @@
 from Entities.Player import Player
 from Entities.Enemy import Enemy
 from States.Battles.BattleSlime import BattleSlime
-from Ui.HUD import HUD
+from UI.HUD import HUD
 
 
 class ExplorationState:
